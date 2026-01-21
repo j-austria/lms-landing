@@ -1,10 +1,10 @@
 // Mobile Menu Toggle
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navLinks = document.querySelector('.nav-links');
 
     if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function () {
             navLinks.classList.toggle('active');
             this.classList.toggle('active');
         });
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         // Close menu when clicking outside
-        document.addEventListener('click', function(event) {
+        document.addEventListener('click', function (event) {
             const isClickInsideNav = navLinks.contains(event.target);
             const isClickOnToggle = mobileMenuToggle.contains(event.target);
 
@@ -79,7 +79,7 @@ const observer = new IntersectionObserver((entries) => {
 // Observe all cards and features
 document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.feature-card, .category-card, .pricing-card, .benefit-card, .faq-item');
-    
+
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
@@ -96,21 +96,21 @@ function validateEmail(email) {
 
 // Track button clicks (for analytics)
 document.querySelectorAll('a[href*="signup"], a[href*="trial"]').forEach(button => {
-    button.addEventListener('click', function(e) {
+    button.addEventListener('click', function (e) {
         // You can integrate with Google Analytics or other analytics tools here
         console.log('CTA clicked:', this.textContent, this.href);
-        
+
         // Example: gtag('event', 'click', { 'event_category': 'CTA', 'event_label': this.textContent });
     });
 });
 
 // Add loading state to buttons
 document.querySelectorAll('.btn-primary, .btn-outline').forEach(button => {
-    button.addEventListener('click', function() {
-        if (this.href && this.href.includes('app.yourlms.com')) {
+    button.addEventListener('click', function () {
+        if (this.href && this.href.includes('app.lowndesk.com')) {
             this.style.opacity = '0.7';
             this.style.pointerEvents = 'none';
-            
+
             setTimeout(() => {
                 this.style.opacity = '1';
                 this.style.pointerEvents = 'auto';
@@ -125,7 +125,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         const navLinks = document.querySelector('.nav-links');
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        
+
         if (navLinks && navLinks.classList.contains('active')) {
             navLinks.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
